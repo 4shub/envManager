@@ -45,3 +45,15 @@ if(envManager.checkVariables()){
 ```
 
 Note, as of now the envmanager will throw an exception ending your program if variables are not properly assigned.
+
+## Testing
+```bash
+npm test
+```
+
+## FAQ
+** Why did you make this program? **
+This system was originally built for HackMerced to allow student developers to easily get started on contributing to our projects.
+
+** Should I commit the .env file **
+Please don't, add it to your .gitignore, otherwise people will get to it!
