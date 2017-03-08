@@ -16,7 +16,9 @@ class manager{
   }
 
   getVariables(){
-    return fs.readFileSync((this.location || default_template_location)).toString().split("\n");
+    return fs.readFileSync((this.location || default_template_location)).toString().split("\n").map(function(variables){
+      return variables.split("=")[0];
+    });
   }
 
   processEnv(){
