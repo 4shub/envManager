@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 // import
 const fs = require("fs");
