@@ -38,11 +38,12 @@ In your program, as early as you can, usually just in your `index.js`, add the f
 
 ```javascript
 const envManager = require("envmanager");
+const manager = new envManager();
 
-
-if(envManager.checkVariables()){
-  // start the rest of your code
+if(manager.checkVariables()){
+  // do your program
 }
+
 
 ```
 
