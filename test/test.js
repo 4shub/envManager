@@ -24,7 +24,12 @@ describe('envManager', function() {
 
   describe('#generateEnvironment()', function() {
     it('throws an error if variables are not defined', function() {
-      assert.throws(manager.checkVariables, Error, "Error thrown");
+      try{
+        manager.checkVariables();
+      } catch(e){
+        assert.ok(true);
+      }
+
     });
 
     it('tests if environmental variables are defined', function() {
