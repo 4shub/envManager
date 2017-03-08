@@ -23,11 +23,13 @@ class manager{
     let that = this;
     let errors = [];
     for(let index in that.variables){
-      errors.push(that.variables[index]);
+      if (that.variables[index]){
+        errors.push(that.variables[index]);
 
-      for(let variable in environment){
-        if(that.variables[index].toUpperCase() === variable && environment[variable]){
-          errors.splice((errors.length-1), 1);
+        for(let variable in environment){
+          if(that.variables[index].toUpperCase() === variable && environment[variable]){
+            errors.splice((errors.length-1), 1);
+          }
         }
       }
     }
@@ -47,8 +49,8 @@ class manager{
       let file = "";
 
       for(let i in environment_variables){
-        let variable_to_print = environment_variables[i];
-        if(variable_to_print){ // prevents blank env variables from being made
+        if(environment_variables[i]){ // prevents blank env variables from being made
+          let variable_to_print = environment_variables[i];
           let default_value_for_variable = "";
 
           if(variable_to_print.indexOf("=") !== -1){

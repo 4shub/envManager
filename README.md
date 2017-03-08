@@ -1,4 +1,6 @@
 # envmanager
+[![Build Status](https://travis-ci.org/4shub/envmanager.svg?branch=master)](https://travis-ci.org/4shub/envmanager)
+[![Code Climate](https://codeclimate.com/github/4shub/envmanager/badges/gpa.svg)](https://codeclimate.com/github/4shub/envmanager)
 
 `envManager` is a npm module that allow you to specify, validate and check local environmental variables. It works best with [`dotenv`](https://github.com/motdotla/dotenv) as it was created for that.
 
