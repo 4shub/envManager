@@ -27,7 +27,7 @@ After your `.env_template` has been configured, you should run `node ./node_modu
 ```json
 ...
 "scripts": {
-  "env": "node ./node_modules/envmanager/envmanager.js generateEnv"
+  "env": "node ./node_modules/envmanager/generateEnv.js"
 },
 ...
 ```
