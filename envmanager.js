@@ -19,7 +19,26 @@ class manager{
     return fs.readFileSync((this.location || default_template_location)).toString().split("\n");
   }
 
-  checkVariables(environment, resolve){
+  processEnv(){
+    if(fs.existsSync(".env")){
+      let env = fs.readFileSync(".env").toString().split("\n");
+      let data = {};
+      for(let i in env){
+        if(env[i]){
+          let variable = env[i].split("=");
+          data[variable[0]] = variable[1];
+        }
+      }
+
+      return data;
+    } else {
+      throw "Your local .env file does not exist!"
+    }
+
+  }
+
+  checkVariables(){
+    let environment = this.processEnv();
     let that = this;
     let errors = [];
     for(let index in that.variables){

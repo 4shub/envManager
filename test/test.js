@@ -22,7 +22,28 @@ describe('envManager', function() {
     });
   });
 
-  describe('#generateEnvironment()', function() {
+  describe('#processEnv()', function() {
+    it('throws an error if there is no .env file', function() {
+      try{
+        manager.processEnv();
+      } catch(e){
+        assert.ok(true);
+      }
+    });
+
+    it('returns an object with all the environmental variables', function() {
+      const env_object = {
+        "MODE":"",
+        "PASSWORD":"",
+        "DATABASE_CONNECTION":"",
+      }
+
+      assert.equal(JSON.stringify(manager.processEnv()), JSON.stringify(env_object));
+    });
+
+  });
+
+  describe('#checkVariables()', function() {
     it('throws an error if variables are not defined', function() {
       try{
         manager.checkVariables();
@@ -33,7 +54,6 @@ describe('envManager', function() {
     });
 
     it('tests if environmental variables are defined', function() {
-      let manager = new envManager('./test/.env_template');
       fs.writeFile('.env', filecopy, function(){
           assert.equal(true, manager.checkVariables());
       });
