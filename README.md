@@ -54,8 +54,8 @@ npm test
 ```
 
 ## FAQ
-** Why did you make this program? **
+##### Why did you make this program?
 This system was originally built for [HackMerced](https://github.com/hackmerced) to allow student developers to easily get started on contributing to our projects.
 
-** Should I commit the .env file **
+##### Should I commit the .env file?
 Please don't, add it to your .gitignore, otherwise people will get to it!
