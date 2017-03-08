@@ -6,7 +6,7 @@ const default_template_location = ".env_template";
 
 class manager{
   constructor(template_location){
-    if(fs.existsSync(template_location)){
+    if(fs.existsSync(template_location || default_template_location)){
       this.location = template_location || default_template_location;
       this.variables = this.getVariables();
     } else {
