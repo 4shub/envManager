@@ -1,6 +1,6 @@
 {
   "name": "envmanager",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Manage environmental variables before running your server",
   "main": "envmanager.js",
   "scripts": {

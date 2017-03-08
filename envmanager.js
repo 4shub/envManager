@@ -93,8 +93,3 @@ class manager{
 }
 
 module.exports = manager;
-
-exports.generateEnv = function(){
-  let manager = new envManager();
-  manager.generateEnvironment();
-}
