@@ -72,8 +72,12 @@ describe('envManager', function() {
     });
 
     it('tests if environmental variables are defined', function() {
-      fs.readFile('.env', function(){
+      fs.writeFile('.env', filecopy, function(){
+        try{
           assert.equal(true, manager.checkVariables());
+        } catch(e){
+          assert.ok(false);
+        }
       });
     });
   });
