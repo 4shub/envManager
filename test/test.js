@@ -1,6 +1,19 @@
+// testing framework
 const assert = require('assert');
+const expect = require('chai').expect
+
+// use to verify data in .env file
 const fs = require("fs");
+
+// our function
 const envManager = require("../envmanager.js");
+
+// a json mockup of what our .env would look like unfilled, so we can use a base comparison
+const env_object = {
+  "MODE":"square",
+  "PASSWORD":"",
+  "DATABASE_CONNECTION":"",
+}
 
 // setup manager
 let manager = new envManager('./test/.env_template');
@@ -20,10 +33,15 @@ describe('envManager', function() {
       });
 
     });
+
+    it('should prefill variables specified by the user', function() {
+      assert.equal(manager.processEnv().MODE, env_object.MODE);
+    });
   });
 
   describe('#processEnv()', function() {
     it('throws an error if there is no .env file', function() {
+
       try{
         manager.processEnv();
       } catch(e){
@@ -32,14 +50,15 @@ describe('envManager', function() {
     });
 
     it('returns an object with all the environmental variables', function() {
-      const env_object = {
-        "MODE":"",
-        "PASSWORD":"",
-        "DATABASE_CONNECTION":"",
-      }
+
 
       assert.equal(JSON.stringify(manager.processEnv()), JSON.stringify(env_object));
     });
+
+
+
+
+
 
   });
 
@@ -50,11 +69,10 @@ describe('envManager', function() {
       } catch(e){
         assert.ok(true);
       }
-
     });
 
     it('tests if environmental variables are defined', function() {
-      fs.writeFile('.env', filecopy, function(){
+      fs.readFile('.env', function(){
           assert.equal(true, manager.checkVariables());
       });
     });

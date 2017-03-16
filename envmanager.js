@@ -8,19 +8,20 @@ class manager{
   constructor(template_location){
     if(fs.existsSync(template_location || default_template_location)){
       this.location = template_location || default_template_location;
-      this.variables = this.getVariables();
+      this.variables = this.getVariables(true);
     } else {
       throw "Template does not exist";
     }
 
   }
 
-  getVariables(){
+  getVariables(onlyIndex){
     return fs.readFileSync((this.location || default_template_location)).toString().split("\n").map(function(variables){
-      return variables.split("=")[0];
+      return ((onlyIndex) ? variables.split("=")[0] : variables);
     });
   }
 
+  // makes the env into a searchable json
   processEnv(){
     if(fs.existsSync(".env")){
       let env = fs.readFileSync(".env").toString().split("\n");
@@ -62,7 +63,7 @@ class manager{
     }
   }
 
-  // generates
+  // saves a .env file with the documents
   generateEnvironment(){
     let environment_variables = this.getVariables();
     const envExists = fs.existsSync(".env");

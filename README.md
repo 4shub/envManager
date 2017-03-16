@@ -41,7 +41,7 @@ const envManager = require("envmanager");
 const manager = new envManager();
 
 if(manager.checkVariables()){
-  // do your program
+  // the rest of your code
 }
 
 
