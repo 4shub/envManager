@@ -1,6 +1,5 @@
 // testing framework
 const assert = require('assert');
-const expect = require('chai').expect
 
 // use to verify data in .env file
 const fs = require("fs");
